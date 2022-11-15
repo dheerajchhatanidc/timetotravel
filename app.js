@@ -8,6 +8,7 @@ app.use(cors()) ;
 app.use(express.json());
 app.use(cookieParser());
 
+
 const db="mongodb+srv://DHEERAJ:MjFDow2mjiDywPvy@cluster0.axgs5.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
 // const  db="mongodb://DHEERAJ:MjFDow2mjiDywPvy@main-shard-00-00-03xkr.mongodb.net:27017,main-shard-00-01-03xkr.mongodb.net:27017,main-shard-00-02-03xkr.mongodb.net:27017/main?ssl=true&replicaSet=Main-shard-0&authSource=admin&retryWrites=true"
 
@@ -35,10 +36,9 @@ app.use('/post',postRouter);
 app.use('/comment',commentRouter);
 app.use('/guest',guestRouter);
 
-if(process.env.NODE_ENV=="production"){
-    app.use(express.static("myapp/build"));
-    app.get('*', function (req, res) {
-      res.sendFile(path.resolve(__dirname, 'myapp', 'build', 'index.html'))
-        
-      });
-}
+
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('/*', function(req,res) {
+		res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
