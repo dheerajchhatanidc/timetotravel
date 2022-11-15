@@ -1,4 +1,4 @@
-const { data } = require("cheerio/lib/api/attributes");
+// const { data } = require("cheerio/lib/api/attributes");
 const express = require("express");
 const postModel=require('../Models/postModel')
 const jwt = require("jsonwebtoken");
