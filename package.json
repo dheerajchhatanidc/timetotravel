@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "intro.js",
   "engines": {
-    "node": ">=0.7.0 <16.15.0",
+    "node": "16.13.2",
     "npm": "8.1.2"
   },
   "scripts": {
